@@ -11,18 +11,13 @@
  */
 
 function middleNode(head: ListNode | null): ListNode | null {
-    let temp: ListNode = head;
-    let cnt: number = 0;
-    while(temp){
-        cnt++;
-        temp = temp.next;
-    }
-    let midCnt: number = cnt % 2 === 0 ? cnt / 2 : Math.floor(cnt / 2)
+    let slow: ListNode | null = head;
+    let fast: ListNode | null = head;
     
-    let temp1: ListNode = head;
-    while(midCnt != 0){
-        midCnt--;
-        head = head.next;
+    while(fast != null && fast.next != null){
+        slow = slow.next;
+        fast = fast.next.next;
+        
     }
-    return head;
+    return slow;
 };
