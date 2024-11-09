@@ -1,13 +1,12 @@
 function replaceElements(arr: number[]): number[] {
-    let result: number[] = [];
-    for(let i=0; i<arr.length-1; i++){
-        let max: number = 0;
-        for(let j=i+1; j<arr.length; j++){
-            if(arr[j] >= max)
-                max = arr[j];
-        }
-        result.push(max);
+    // initial max -1
+    let rightMax: number = -1;
+    //reverse iteration
+    // new max = max(oldmax, current value)
+    for(let i = arr.length-1; i>=0; i--){
+        let newMax = Math.max(rightMax, arr[i]);
+        arr[i] = rightMax;
+        rightMax = newMax;
     }
-    result.push(-1);
-    return result;
+    return arr;
 };
