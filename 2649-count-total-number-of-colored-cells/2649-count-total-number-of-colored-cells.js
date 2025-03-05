@@ -4,9 +4,6 @@
  */
 var coloredCells = function(n) {
 
-    let res = 1;
-    for(let i=1; i<=n; i++){
-        res = res+(4*i)-4;
-    }
-    return res;
+        return (n - 1) * 2 * n + 1;
+
 };
